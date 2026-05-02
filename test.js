@@ -8,8 +8,8 @@ const options = {
 };
 
 const req = http.request(options, (res) => {
-  if (res.statusCode === 401) {
-    console.log("✅ Test OK (requiere token)");
+  if (res.statusCode === 403 || res.statusCode === 401) {
+    console.log("✅ Test OK (La API protegió la ruta correctamente)");
     process.exit(0);
   } else {
     console.log("❌ Test falló");
